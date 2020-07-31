@@ -41,6 +41,9 @@ public class PlayerMove : MonoBehaviour
 
     // roll
     public bool roll;
+    public float rollSpeed = 5f;
+    public float rollTime = 1f;
+
 
 
     // animations
@@ -65,6 +68,16 @@ public class PlayerMove : MonoBehaviour
         doubleS();
         doubleD();
 
+        // roll.
+        if (Input.GetKeyDown(KeyCode.Space) && (!roll))
+        {
+            roll = true;
+            animator.SetTrigger("roll");
+            Invoke("disableRoll", rollTime);
+           
+        }
+        
+
 
 
     }
@@ -72,8 +85,8 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        move();
 
+        move();
     }
 
 
@@ -119,22 +132,32 @@ public class PlayerMove : MonoBehaviour
 
         }
 
-        // roll.
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if (roll)
         {
-            animator.SetTrigger("roll");
+            if (direction.magnitude > 0.01f)
+            {
+                transform.Translate(direction * rollSpeed * Time.deltaTime, Space.World);
+            }
+            else
+            {
+                Vector3 facing = transform.forward.normalized;
+                //Debug.Log(facing.ToString());
+                transform.Translate( facing * rollSpeed * Time.deltaTime, Space.World);
+
+            }
+            return;
+
         }
-
-
-        if (sprinting)
+        else if (sprinting)
         {
             transform.Translate(direction * sprintSpeed * Time.deltaTime, Space.World);
 
         }
+
         else
         {
             transform.Translate(direction * runSpeed * Time.deltaTime, Space.World);
-
         }
 
 
@@ -262,6 +285,14 @@ public class PlayerMove : MonoBehaviour
             buttonCountD = 0;
         }
     }
+
+
+    private void disableRoll()
+    {
+        roll = false;
+    }
+
+
 
    
 
