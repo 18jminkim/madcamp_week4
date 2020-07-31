@@ -123,6 +123,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             animator.SetTrigger("roll");
+            Debug.Log("Space key detected");
         }
 
 
