@@ -76,6 +76,7 @@ public class PlayerMove : MonoBehaviour
             Invoke("disableRoll", rollTime);
            
         }
+
         
 
 
@@ -103,7 +104,7 @@ public class PlayerMove : MonoBehaviour
 
 
         //rotation
-        if (direction.normalized.magnitude > 0f)
+        if (direction.normalized.magnitude > 0f && (!roll))
         {
             float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
             float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -128,13 +129,15 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("sprint", false);
             animator.SetBool("run", false);
             //Debug.Log("Not moving.");
-
-
         }
 
 
         if (roll)
         {
+            Vector3 facing = transform.forward.normalized;
+            //Debug.Log(facing.ToString());
+            transform.Translate(facing * rollSpeed * Time.deltaTime, Space.World);
+            /*
             if (direction.magnitude > 0.01f)
             {
                 transform.Translate(direction * rollSpeed * Time.deltaTime, Space.World);
@@ -147,6 +150,7 @@ public class PlayerMove : MonoBehaviour
 
             }
             return;
+            */
 
         }
         else if (sprinting)
