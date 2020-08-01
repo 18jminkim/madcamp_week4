@@ -95,6 +95,11 @@ public class PlayerMove : MonoBehaviour
     // movement
     private void move()
     {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Immovable"))
+        {
+            return;
+        }
+
         // translation
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
@@ -137,20 +142,6 @@ public class PlayerMove : MonoBehaviour
             Vector3 facing = transform.forward.normalized;
             //Debug.Log(facing.ToString());
             transform.Translate(facing * rollSpeed * Time.deltaTime, Space.World);
-            /*
-            if (direction.magnitude > 0.01f)
-            {
-                transform.Translate(direction * rollSpeed * Time.deltaTime, Space.World);
-            }
-            else
-            {
-                Vector3 facing = transform.forward.normalized;
-                //Debug.Log(facing.ToString());
-                transform.Translate( facing * rollSpeed * Time.deltaTime, Space.World);
-
-            }
-            return;
-            */
 
         }
         else if (sprinting)

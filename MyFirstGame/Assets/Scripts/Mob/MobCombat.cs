@@ -2,13 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class MobCombat : MonoBehaviour
 {
     public Animator animator;
     public EnemyControl enemyControl;
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
+
+
+    //public EnemyControl enemyControl;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,40 +29,56 @@ public class MobCombat : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+        if ( currentHealth <= 0)
+        {
+            return;
+        }
+
+
         currentHealth -= damage;
 
 
         // mob hurt animation
-        animator.SetTrigger("hurt");
 
         if (currentHealth <= 0)
         {
             die();
             Invoke("destroy", 5f);
         }
+        else
+        {
+            animator.SetTrigger("hurt");
+
+        }
 
     }
+
 
 
     void destroy()
     {
         Destroy(gameObject);
+        //turn off script
+        this.enabled = false;
     }
 
 
     void die()
     {
+
+
+
         Debug.Log(name + " died.");
 
         // die animation
         animator.SetBool("dead", true);
 
         // disable enemy
-
-
-
-
-        //turn off script
         enemyControl.enabled = false;
+
+
+
+
+
     }
 }
