@@ -6,6 +6,7 @@ using UnityEngine;
 public class MobCombat : MonoBehaviour
 {
     public Animator animator;
+    public EnemyControl enemyControl;
     public int maxHealth = 100;
     int currentHealth;
     // Start is called before the first frame update
@@ -13,6 +14,7 @@ public class MobCombat : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
+        enemyControl = GetComponent<EnemyControl>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,15 @@ public class MobCombat : MonoBehaviour
         if (currentHealth <= 0)
         {
             die();
+            Invoke ("destroy", 5f);
         }
+        
+    }
+
+
+    void destroy()
+    {
+        Destroy(gameObject);
     }
 
 
@@ -49,6 +59,6 @@ public class MobCombat : MonoBehaviour
 
 
         //turn off script
-        this.enabled = false;
+        enemyControl.enabled = false;
     }
 }
