@@ -20,7 +20,7 @@ public class MobCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void takeDamage(int damage)
@@ -34,9 +34,9 @@ public class MobCombat : MonoBehaviour
         if (currentHealth <= 0)
         {
             die();
-            Invoke ("destroy", 5f);
+            Invoke("destroy", 5f);
         }
-        
+
     }
 
 
