@@ -56,8 +56,6 @@ public class PlayerMove : MonoBehaviour
         characterRb = GetComponent<Rigidbody>();
         characterCol = GetComponent<Collider>();
         animator = GetComponent<Animator>();
-
-
     }
 
     // Update is called once per frame
@@ -74,13 +72,7 @@ public class PlayerMove : MonoBehaviour
             roll = true;
             animator.SetTrigger("roll");
             Invoke("disableRoll", rollTime);
-           
         }
-
-        
-
-
-
     }
 
 
@@ -118,9 +110,6 @@ public class PlayerMove : MonoBehaviour
             {
                 animator.SetBool("sprint", true);
             }
-
-
-
 
         }
         else // character not moving
@@ -270,9 +259,7 @@ public class PlayerMove : MonoBehaviour
             if (buttonCoolerD > 0 && buttonCountD == 1/*Number of Taps you want Minus One*/)
             {
                 //Has double tapped
-
                 sprinting = true;
-
             }
             else
             {
@@ -290,17 +277,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-
     private void disableRoll()
     {
         roll = false;
     }
-
-
-
-   
-
-
-
-
 }
