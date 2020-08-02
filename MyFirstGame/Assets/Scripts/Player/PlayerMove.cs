@@ -49,6 +49,9 @@ public class PlayerMove : MonoBehaviour
     // animations
     public Animator animator;
 
+    // player camera
+    public Transform cam;
+
 
     // Start is called before the first frame update
     void Start()
@@ -106,27 +109,19 @@ public class PlayerMove : MonoBehaviour
         Vector3 direction = new Vector3(x, 0f, z).normalized;
 
 
-
+        float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        Vector3 moveDir = (Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward).normalized;
 
         //rotation
         if (direction.normalized.magnitude > 0f && (!roll))
         {
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            
             transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
+
             //run = true;
             animator.SetBool("run", true);
-
-
-            if (sprinting)
-            {
-                animator.SetBool("sprint", true);
-            }
-
-
-
-
         }
         else // character not moving
         {
@@ -136,7 +131,6 @@ public class PlayerMove : MonoBehaviour
             //Debug.Log("Not moving.");
         }
 
-
         if (roll)
         {
             Vector3 facing = transform.forward.normalized;
@@ -144,16 +138,27 @@ public class PlayerMove : MonoBehaviour
             transform.Translate(facing * rollSpeed * Time.deltaTime, Space.World);
 
         }
-        else if (sprinting)
+        else if (direction.magnitude > 0f)
         {
-            transform.Translate(direction * sprintSpeed * Time.deltaTime, Space.World);
+
+            if (sprinting)
+            {
+                animator.SetBool("sprint", true);
+                transform.Translate(moveDir * sprintSpeed * Time.deltaTime, Space.World);
+            }
+            else
+            {
+                transform.Translate(moveDir * runSpeed * Time.deltaTime, Space.World);
+            }
+
 
         }
 
-        else
-        {
-            transform.Translate(direction * runSpeed * Time.deltaTime, Space.World);
-        }
+
+
+
+
+
 
 
     }
