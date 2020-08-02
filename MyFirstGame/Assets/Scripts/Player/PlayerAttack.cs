@@ -41,7 +41,7 @@ public class PlayerAttack : MonoBehaviour
     private void OnTriggerEnter(Collider trigger)
     {
 
-        if (trigger.tag == "Mob") // collided with a hostile mob.
+        if (trigger.tag == "MobHurtbox") // collided with a hostile mob.
         {
             Debug.Log("Sword collider: we hit " + trigger.name);
             trigger.GetComponent<MobCombat>().takeDamage(dmg1);
