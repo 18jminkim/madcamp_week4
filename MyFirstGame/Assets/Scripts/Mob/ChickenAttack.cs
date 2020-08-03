@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyControl : MonoBehaviour
+public class ChickenAttack : MonoBehaviour
 {
     public Animator animator;
-    public float lookRadius = 10f;
+    public float walkRadius = Mathf.Infinity;
+    public float runRadius = 10f;
     // Start is called before the first frame update\
 
     Transform target;
@@ -28,26 +29,39 @@ public class EnemyControl : MonoBehaviour
         float distance = Vector3.Distance(target.position, transform.position);
 
         // player is within distance and mob is movable.
-        if (distance <=lookRadius && !(animator.GetCurrentAnimatorStateInfo(0).IsTag("Immovable")))
+        if (distance <=walkRadius && !(animator.GetCurrentAnimatorStateInfo(0).IsTag("Immovable")))
         {
-            agent.SetDestination(target.position);
-            animator.SetBool("move", true);
-            FaceTarget();
-            if (distance <= agent.stoppingDistance){
-                //Attack the target
-                attack();
-            }
-        }
+            if (distance <=runRadius)
+            {
+                agent.SetDestination(target.position);
+                animator.SetBool("run", true);
+                animator.SetBool("walk", false);
+                FaceTarget();
+                if (distance <= agent.stoppingDistance){
+                    //Attack the target
+                    attack();
+                }
+            }  else{
+                agent.SetDestination(target.position);
+                animator.SetBool("walk", true);
+                animator.SetBool("run", false);
+                FaceTarget();
+                if (distance <= agent.stoppingDistance){
+                    //Attack the target
+                    attack();
+                }
+            }        
+        }   
         else // mob is not moving.
         {
-            animator.SetBool("move", false);
-
+            animator.SetBool("walk", false);
+            animator.SetBool("run", false);
         }
     }
 
     private void OnDrawGizmosSelected(){
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, lookRadius);
+        Gizmos.DrawWireSphere(transform.position, walkRadius);
 
     }
 
