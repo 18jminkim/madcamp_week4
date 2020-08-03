@@ -10,6 +10,8 @@ public class MobCombat : MonoBehaviour
     public EnemyControl enemyControl;
     public int maxHealth = 100;
     public int currentHealth;
+    public HealthBar healthBar;
+
 
 
     //public EnemyControl enemyControl;
@@ -19,6 +21,10 @@ public class MobCombat : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         enemyControl = GetComponent<EnemyControl>();
+
+        healthBar = GetComponentInChildren<HealthBar>();
+        healthBar.setMaxHealth(maxHealth);
+
     }
 
     // Update is called once per frame
@@ -36,6 +42,8 @@ public class MobCombat : MonoBehaviour
 
 
         currentHealth -= damage;
+        healthBar.setHealth(currentHealth);
+
 
 
         // mob hurt animation
@@ -65,9 +73,6 @@ public class MobCombat : MonoBehaviour
 
     void die()
     {
-
-
-
         Debug.Log(name + " died.");
 
         // die animation
@@ -75,10 +80,5 @@ public class MobCombat : MonoBehaviour
 
         // disable enemy
         enemyControl.enabled = false;
-
-
-
-
-
     }
 }

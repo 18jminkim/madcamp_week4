@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class EnemyControl : MonoBehaviour
 {
     public Animator animator;
-    public float lookRadius = 10f;
+    public float lookRadius = 6f;
     // Start is called before the first frame update\
 
     Transform target;

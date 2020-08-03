@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
     public PlayerMove playerMove;
+    public HealthBar healthBar; 
 
     // entire player transform.
     public Transform playerTransform;
@@ -23,9 +24,12 @@ public class PlayerCombat : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
+        healthBar = GetComponentInChildren<HealthBar>();
         animator = GetComponent<Animator>();
         playerMove = GetComponent<PlayerMove>();
         playerTransform = GetComponentInParent<Transform>();
+
+        healthBar.setMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -53,6 +57,7 @@ public class PlayerCombat : MonoBehaviour
             return;
         }
         currentHealth -= damage;
+        healthBar.setHealth(currentHealth);
 
 
         // player hurt animation
