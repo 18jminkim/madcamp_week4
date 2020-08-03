@@ -11,7 +11,7 @@ public class MobAttack : MonoBehaviour
     public Collider mobCollider;
 
     // attack damages
-    public int dmg1 = 30;
+    public int dmg1 = 10;
 
 
 
@@ -19,7 +19,8 @@ public class MobAttack : MonoBehaviour
     void Start()
     {
         animator = GetComponentInParent<Animator>();
-        mobCollider = GetComponent<Collider>(); 
+        mobCollider = GetComponent<Collider>();
+        mobCollider.isTrigger = true;
     }
 
     // Update is called once per frame
