@@ -1276,10 +1276,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: Hurt
+    clip: {fileID: 8300000, guid: a37f44cbf8c2a7443a3c361efa2f233a, type: 3}
+    volume: 1
+    pitch: 1
     source: {fileID: 0}
 --- !u!1 &696268330
 GameObject:
@@ -1980,7 +1980,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156793656}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &1156793658
 Camera:
   m_ObjectHideFlags: 0
