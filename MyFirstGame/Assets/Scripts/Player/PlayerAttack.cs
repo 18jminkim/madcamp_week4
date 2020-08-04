@@ -44,7 +44,21 @@ public class PlayerAttack : MonoBehaviour
         if (trigger.tag == "MobHurtbox") // collided with a hostile mob.
         {
             Debug.Log("Sword collider: we hit " + trigger.name);
-            trigger.GetComponent<MobCombat>().takeDamage(dmg1);
+
+            MobCombat mobCombat = trigger.GetComponent<MobCombat>();
+
+            if (mobCombat != null) // not a boss.
+            {
+                mobCombat.takeDamage(dmg1);
+            }
+            else // is a boss.
+            {
+                trigger.GetComponent<BossCombat>().takeDamage(dmg1);
+            }
+
+
+
+
 
         }
     }
