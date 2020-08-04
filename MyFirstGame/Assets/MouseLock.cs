@@ -6,13 +6,17 @@ using UnityEngine;
 public class MouseLock : MonoBehaviour
 {
     public CinemachineBrain cine;
+    //public PauseMenu pauseMenu;
     //public PlayerMove playerMove;
+
+
 
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && (!PauseGame.GameIsPaused))
+
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -22,7 +26,7 @@ public class MouseLock : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || PauseGame.GameIsPaused)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
