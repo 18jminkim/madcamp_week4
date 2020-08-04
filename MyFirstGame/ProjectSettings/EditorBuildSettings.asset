@@ -21,6 +21,6 @@ EditorBuildSettings:
     path: Assets/Maps/Main Menu.unity
     guid: 8afdcf2d453879340a67f7897fd14fa3
   - enabled: 1
-    path: Assets/Maps/Dungeon 1.unity
+    path: Assets/Maps/Dungeon.unity
     guid: 81cc3032c429a824d8ca5d679da0ff75
   m_configObjects: {}
