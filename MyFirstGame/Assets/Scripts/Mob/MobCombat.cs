@@ -11,6 +11,7 @@ public class MobCombat : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    public AudioManage audioManage;
 
 
 
@@ -21,6 +22,7 @@ public class MobCombat : MonoBehaviour
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
         enemyControl = GetComponent<EnemyControl>();
+        audioManage = FindObjectOfType<AudioManage>();
 
         healthBar = GetComponentInChildren<HealthBar>();
         healthBar.setMaxHealth(maxHealth);
@@ -40,7 +42,7 @@ public class MobCombat : MonoBehaviour
             return;
         }
 
-
+        audioManage.Play("Hurt");
         currentHealth -= damage;
         healthBar.setHealth(currentHealth);
 
