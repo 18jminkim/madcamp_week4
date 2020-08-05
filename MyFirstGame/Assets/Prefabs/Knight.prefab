@@ -614,56 +614,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0.97, z: 0}
---- !u!114 &985431392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8438310156194666151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc1ae37bb6b2ca459b4d24ca2b0b006, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 8379187526053566243}
-  playerMove: {fileID: 0}
-  healthBar: {fileID: 488888754}
-  playerTransform: {fileID: 0}
-  maxHealth: 200
-  currentHealth: 0
-  knockbackDistance: 2
-  attackRate: 1
---- !u!114 &985431393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8438310156194666151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae998328c22a9447be95ff060339964, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterRb: {fileID: 0}
-  characterCol: {fileID: 0}
-  movable: 1
-  runSpeed: 3
-  sprintSpeed: 5
-  sprinting: 0
-  buttonCoolerW: 0.5
-  buttonCoolerA: 0.5
-  buttonCoolerS: 0.5
-  buttonCoolerD: 0.5
-  lastDown: ' '
-  doubleTap: 0
-  turnSmoothTime: 0.05
-  roll: 0
-  rollSpeed: 7
-  rollTime: 0.7
-  animator: {fileID: 0}
-  cam: {fileID: 0}
 --- !u!82 &6133768171226122128
 AudioSource:
   m_ObjectHideFlags: 0
@@ -760,6 +710,56 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &985431392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438310156194666151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc1ae37bb6b2ca459b4d24ca2b0b006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8379187526053566243}
+  playerMove: {fileID: 0}
+  healthBar: {fileID: 488888754}
+  playerTransform: {fileID: 0}
+  maxHealth: 200
+  currentHealth: 0
+  knockbackDistance: 2
+  attackRate: 1
+--- !u!114 &985431393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438310156194666151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae998328c22a9447be95ff060339964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRb: {fileID: 0}
+  characterCol: {fileID: 0}
+  movable: 1
+  runSpeed: 3
+  sprintSpeed: 5
+  sprinting: 0
+  buttonCoolerW: 0.5
+  buttonCoolerA: 0.5
+  buttonCoolerS: 0.5
+  buttonCoolerD: 0.5
+  lastDown: ' '
+  doubleTap: 0
+  turnSmoothTime: 0.05
+  roll: 0
+  rollSpeed: 7
+  rollTime: 0.7
+  animator: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!64 &985431401
 MeshCollider:
   m_ObjectHideFlags: 0
