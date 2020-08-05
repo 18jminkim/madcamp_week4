@@ -12,20 +12,25 @@ public class LoseGame : MonoBehaviour
 
     public static bool YouLost = false;
 
+    public AudioManage audioManage;
+
 
     private void Start()
     {
         loseMenuUI.SetActive(false);
         YouLost = false;
+        audioManage = FindObjectOfType<AudioManage>();
     }
 
     void Update()
     {
         if (player.dead)
         {
+            audioManage.Stop("BossTheme");
             Debug.Log("Player Died");
             loseMenuUI.SetActive(true);
             YouLost = true;
+            
         }
     }
 

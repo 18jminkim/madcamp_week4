@@ -12,6 +12,7 @@ public class WinGame : MonoBehaviour
     public BossCombat purpleBoss;
 
     public GameObject winMenuUI;
+    public AudioManage audioManage;
 
 
     public static bool YouWin = false;
@@ -20,6 +21,7 @@ public class WinGame : MonoBehaviour
     {
         winMenuUI.SetActive(false);
         YouWin = false;
+        audioManage = FindObjectOfType<AudioManage>();
     }
 
 
@@ -30,6 +32,7 @@ public class WinGame : MonoBehaviour
             Debug.Log("Resume");
             winMenuUI.SetActive(true);
             YouWin = true;
+            //audioManage.Play("BattleC");
         }
     }
 

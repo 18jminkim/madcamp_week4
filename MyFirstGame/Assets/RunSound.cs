@@ -13,7 +13,9 @@ public class RunSound : StateMachineBehaviour
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       
+        audioManage = FindObjectOfType<AudioManage>();
+        audioManage.Play("Move");
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -30,8 +32,7 @@ public class RunSound : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        audioManage = FindObjectOfType<AudioManage>();
-        audioManage.Play("Move");
+        audioManage.Stop("Move");
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
