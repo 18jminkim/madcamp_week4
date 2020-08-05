@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Data.Odbc;
+//using System.Data.Odbc;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
