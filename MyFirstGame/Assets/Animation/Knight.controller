@@ -707,7 +707,8 @@ AnimatorState:
   - {fileID: -8968619972453549268}
   - {fileID: -2170845087799832488}
   - {fileID: 2585552365900082077}
-  m_StateMachineBehaviours: []
+  m_StateMachineBehaviours:
+  - {fileID: 6127213924062840653}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -722,6 +723,19 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &6127213924062840653
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e38ea9f540a794a92627f25d9ad624, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManage: {fileID: 0}
 --- !u!1102 &6617532465471652755
 AnimatorState:
   serializedVersion: 5

@@ -10,6 +10,8 @@ public class PlayerAttack : MonoBehaviour
     // mesh collider of the knight sword
     public Collider swordCol;
 
+    public AudioManage audioManage;
+
     // attack damages
     public int dmg1 = 20;
     public int dmg2 = 20;
@@ -22,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     {
         swordCol = GetComponent<Collider>();
         animator = GetComponentInParent<Animator>();
+        audioManage = FindObjectOfType<AudioManage>();
     }
 
     // Update is called once per frame
@@ -44,7 +47,7 @@ public class PlayerAttack : MonoBehaviour
         if (trigger.tag == "MobHurtbox") // collided with a hostile mob.
         {
             Debug.Log("Sword collider: we hit " + trigger.name);
-
+           // audioManage.Play("Hit");
             MobCombat mobCombat = trigger.GetComponent<MobCombat>();
 
             if (mobCombat != null) // not a boss.

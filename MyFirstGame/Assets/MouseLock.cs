@@ -15,8 +15,7 @@ public class MouseLock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && (!PauseGame.GameIsPaused))
-
+        if (Input.GetMouseButtonDown(0) && (!PauseGame.GameIsPaused)  && (!LoseGame.YouLost) && (!WinGame.YouWin))
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -26,7 +25,7 @@ public class MouseLock : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape) || PauseGame.GameIsPaused)
+        if (Input.GetKeyDown(KeyCode.Escape) || PauseGame.GameIsPaused || LoseGame.YouLost || WinGame.YouWin)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

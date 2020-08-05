@@ -53,6 +53,8 @@ public class PlayerMove : MonoBehaviour
     // player camera
     public Transform cam;
 
+    public AudioManage audioManage;
+
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +63,7 @@ public class PlayerMove : MonoBehaviour
         characterCol = GetComponent<Collider>();
         animator = GetComponent<Animator>();
 
-
+        audioManage = FindObjectOfType<AudioManage>();
     }
 
 
@@ -126,6 +128,7 @@ public class PlayerMove : MonoBehaviour
 
             //run = true;
             animator.SetBool("run", true);
+            //audioManage.Play("Move");
         }
         else // character not moving
         {
