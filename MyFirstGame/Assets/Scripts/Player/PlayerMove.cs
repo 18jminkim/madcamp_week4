@@ -1,6 +1,7 @@
-﻿using System.Collections;
+﻿using Mirror;
+using System.Collections;
 using System.Collections.Generic;
-using System.Data.Odbc;
+//using System.Data.Odbc;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -65,9 +66,12 @@ public class PlayerMove : MonoBehaviour
         audioManage = FindObjectOfType<AudioManage>();
     }
 
+
     // Update is called once per frame
     void Update()
     {
+        //if (!hasAuthority) { return; }
+
         doubleW();
         doubleA();
         doubleS();

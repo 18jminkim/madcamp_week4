@@ -29,4 +29,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Maps/Boss.unity
     guid: fdd998732721e4743853bd795ba44bb8
+  - enabled: 0
+    path: Assets/Maps/Empty.unity
+    guid: ce106d39c72b09d448baa6885481ab50
+  - enabled: 0
+    path: Assets/Maps/Network Empty.unity
+    guid: ca1838fbfc68c7b4eae59e44688c2794
   m_configObjects: {}

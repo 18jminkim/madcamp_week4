@@ -849,6 +849,84 @@ MonoBehaviour:
   rollTime: 0.7
   animator: {fileID: 0}
   cam: {fileID: 0}
+--- !u!64 &985431401
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437893214909314363}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
+--- !u!136 &985431400
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8437877728381107733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 2
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.03}
+--- !u!114 &985431399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438310156194666151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc1ae37bb6b2ca459b4d24ca2b0b006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 8379187526053566243}
+  playerMove: {fileID: 0}
+  healthBar: {fileID: 488888754}
+  playerTransform: {fileID: 0}
+  maxHealth: 200
+  currentHealth: 0
+  knockbackDistance: 2
+  attackRate: 1
+--- !u!114 &985431393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8438310156194666151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ae998328c22a9447be95ff060339964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterRb: {fileID: 0}
+  characterCol: {fileID: 0}
+  movable: 1
+  runSpeed: 3
+  sprintSpeed: 5
+  sprinting: 0
+  buttonCoolerW: 0.5
+  buttonCoolerA: 0.5
+  buttonCoolerS: 0.5
+  buttonCoolerD: 0.5
+  lastDown: ' '
+  doubleTap: 0
+  turnSmoothTime: 0.05
+  roll: 0
+  rollSpeed: 7
+  rollTime: 0.7
+  animator: {fileID: 0}
+  cam: {fileID: 0}
 --- !u!1001 &8438729596050333139
 PrefabInstance:
   m_ObjectHideFlags: 0
