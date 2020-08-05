@@ -7044,7 +7044,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429797496}
-  m_LocalRotation: {x: 0.49481523, y: -0.000000033434393, z: 0.000000019037836, w: 0.8689982}
+  m_LocalRotation: {x: 0.49481523, y: -0.000000033434397, z: 0.000000019037838, w: 0.8689982}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9022,7 +9022,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548157585}
-  m_LocalRotation: {x: 0.4469956, y: 0.00032287245, z: -0.00016133787, w: 0.89453614}
+  m_LocalRotation: {x: 0.4469956, y: 0.00041776372, z: -0.0002087546, w: 0.8945361}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31851,7 +31851,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875556181}
-  m_LocalRotation: {x: 0.44699565, y: 0.00032287254, z: -0.00016133796, w: 0.8945361}
+  m_LocalRotation: {x: 0.44699568, y: 0.00041776372, z: -0.00020875466, w: 0.894536}
   m_LocalPosition: {x: -0.5594287, y: 4.6914215, z: -8.579093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -32802,9 +32802,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6133768171226122128, guid: de0833a0eaaf9ec45aa6847fba8c0dbb,
         type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f404f8d3c2a4b4f48989fb1120e78fb8, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.913
+      objectReference: {fileID: 0}
     - target: {fileID: 8435987704775931029, guid: de0833a0eaaf9ec45aa6847fba8c0dbb,
         type: 3}
       propertyPath: m_LocalPosition.x
