@@ -7,7 +7,8 @@ public class PlayerCombat : MonoBehaviour
 {
     public Animator animator;
     public PlayerMove playerMove;
-    public HealthBar healthBar; 
+    public HealthBar healthBar;
+    public AudioManage audioManage;
 
     // entire player transform.
     public Transform playerTransform;
@@ -20,6 +21,8 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+    public bool dead = false;
+
 
     private void Start()
     {
@@ -30,6 +33,7 @@ public class PlayerCombat : MonoBehaviour
         playerTransform = GetComponentInParent<Transform>();
 
         healthBar.setMaxHealth(maxHealth);
+        audioManage = FindObjectOfType<AudioManage>();
     }
 
     // Update is called once per frame
@@ -42,11 +46,9 @@ public class PlayerCombat : MonoBehaviour
             {
                 attack();
                 nextAttackTime = Time.time + 1f / attackRate;
+                audioManage.Play("Hit");
             }
-
         }
-
-
     }
 
 
@@ -64,7 +66,9 @@ public class PlayerCombat : MonoBehaviour
         if (currentHealth <= 0)
         {
             die();
-            Invoke("destroy", 5f);
+            dead = true;
+
+            //Invoke("destroy", 5f);
         }
         else
         {

@@ -9,6 +9,7 @@ public class BossCombat : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    public bool dead = false;
 
 
 
@@ -41,7 +42,8 @@ public class BossCombat : MonoBehaviour
         if (currentHealth <= 0)
         {
             die();
-            Invoke("destroy", 5f);
+            dead = true;
+            //Invoke("destroy", 5f);
         }
 
     }
