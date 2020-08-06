@@ -1068,10 +1068,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   bossControl: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 300
   currentHealth: 0
   healthBar: {fileID: 0}
   dead: 0
+  audioManage: {fileID: 0}
 --- !u!114 &764784830429775278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,7 +1525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   mobCollider: {fileID: 0}
-  dmg1: 10
+  dmg1: 30
 --- !u!1 &764784829672180559
 GameObject:
   m_ObjectHideFlags: 0

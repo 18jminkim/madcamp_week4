@@ -46,7 +46,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 attack();
                 nextAttackTime = Time.time + 1f / attackRate;
-                audioManage.Play("Hit");
+                //audioManage.Play("Hit");
             }
         }
     }
@@ -60,6 +60,7 @@ public class PlayerCombat : MonoBehaviour
         }
         currentHealth -= damage;
         healthBar.setHealth(currentHealth);
+
 
 
         // player hurt animation
@@ -83,6 +84,7 @@ public class PlayerCombat : MonoBehaviour
                 //playerTransform.Translate(-playerTransform.forward * knockbackDistance, Space.Self);
             }
         }
+        audioManage.Play("PlayerHurt");
 
     }
 
