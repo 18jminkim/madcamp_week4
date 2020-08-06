@@ -104,7 +104,7 @@ public class PlayerMove : MonoBehaviour
     // movement
     private void move()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Immovable"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Immovable") || animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
         {
             return;
         }

@@ -35,7 +35,7 @@ public class BossCombat : MonoBehaviour
             return;
         }
 
-        audioManage.Play("Hurt");
+        //audioManage.Play("Hurt");
         currentHealth -= damage;
         healthBar.setHealth(currentHealth);
 
