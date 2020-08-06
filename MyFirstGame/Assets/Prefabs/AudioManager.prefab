@@ -47,7 +47,7 @@ MonoBehaviour:
   - name: Hurt
     clip: {fileID: 8300000, guid: 2d3d61f7b98c66846975cfafe3bc37e1, type: 3}
     volume: 1
-    pitch: 1
+    pitch: 2
     loop: 0
     source: {fileID: 0}
   - name: Swing

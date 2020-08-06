@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -21,6 +23,13 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
+
+    // gliding fury combo.
+    public int noOfClicks = 0;
+    float laskClickedTime = 0f;
+    public float maxComboDelay = 0.9f;
+
+
     public bool dead = false;
 
 
@@ -39,7 +48,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        /*
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetMouseButtonDown(0))
@@ -48,8 +57,38 @@ public class PlayerCombat : MonoBehaviour
                 nextAttackTime = Time.time + 1f / attackRate;
                 //audioManage.Play("Hit");
             }
+
         }
+        */
+
+        if (Time.time - laskClickedTime > maxComboDelay)
+        {
+            noOfClicks = 0;
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            laskClickedTime = Time.time;
+            noOfClicks++;
+            if (noOfClicks == 1)
+            {
+                attack();
+            }
+            noOfClicks = Mathf.Clamp(noOfClicks, 0, 3);
+        }
+
+
     }
+    
+    public void return1()
+    {
+        if (noOfClicks >= 2)
+        {
+            animator.SetTrigger("glidingFury");
+        }
+        noOfClicks = 0;
+    }
+    
 
 
     public void takeDamage(int damage)
@@ -68,7 +107,7 @@ public class PlayerCombat : MonoBehaviour
         {
             die();
             dead = true;
-
+            this.enabled = false;
             //Invoke("destroy", 5f);
         }
         else
