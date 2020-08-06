@@ -46,7 +46,7 @@ public class AudioManage : MonoBehaviour
         }
 
         
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             if (WinGame.YouWin)
             {

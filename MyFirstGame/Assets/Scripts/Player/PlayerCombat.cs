@@ -76,6 +76,7 @@ public class PlayerCombat : MonoBehaviour
             }
             noOfClicks = Mathf.Clamp(noOfClicks, 0, 3);
         }
+        return1();
 
 
     }
