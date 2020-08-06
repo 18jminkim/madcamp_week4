@@ -9,7 +9,7 @@ public class Billboard : MonoBehaviour
 
     private void Start()
     {
-        
+        //cam = Find
     }
 
 
