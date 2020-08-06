@@ -1,16 +1,15 @@
-﻿using JetBrains.Annotations;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
-public class MobCombat : MonoBehaviour
+public class BossCombat : MonoBehaviour
 {
     public Animator animator;
-    public EnemyControl enemyControl;
-    public int maxHealth = 100;
+    public BossControl bossControl;
+    public int maxHealth = 300;
     public int currentHealth;
     public HealthBar healthBar;
+    public bool dead = false;
     public AudioManage audioManage;
 
 
@@ -21,23 +20,17 @@ public class MobCombat : MonoBehaviour
     {
         currentHealth = maxHealth;
         animator = GetComponent<Animator>();
-        enemyControl = GetComponent<EnemyControl>();
-        audioManage = FindObjectOfType<AudioManage>();
+        bossControl = GetComponent<BossControl>();
 
         healthBar = GetComponentInChildren<HealthBar>();
         healthBar.setMaxHealth(maxHealth);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        audioManage = FindObjectOfType<AudioManage>();
 
     }
 
     public void takeDamage(int damage)
     {
-        if ( currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             return;
         }
@@ -47,18 +40,12 @@ public class MobCombat : MonoBehaviour
         healthBar.setHealth(currentHealth);
 
 
-
-        // mob hurt animation
-
+        // if health 0, kill the boss
         if (currentHealth <= 0)
         {
             die();
-            Invoke("destroy", 5f);
-        }
-        else
-        {
-            animator.SetTrigger("hurt");
-
+            dead = true;
+            //Invoke("destroy", 5f);
         }
 
     }
@@ -76,13 +63,11 @@ public class MobCombat : MonoBehaviour
     void die()
     {
         Debug.Log(name + " died.");
-        audioManage.Play("MobDead");
-
 
         // die animation
         animator.SetBool("dead", true);
 
         // disable enemy
-        enemyControl.enabled = false;
+        bossControl.enabled = false;
     }
 }

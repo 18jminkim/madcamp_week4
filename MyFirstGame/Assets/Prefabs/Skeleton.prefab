@@ -1750,7 +1750,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   mobCollider: {fileID: 0}
-  dmg1: 10
+  dmg1: 20
 --- !u!1 &2129840001729918331
 GameObject:
   m_ObjectHideFlags: 0
@@ -5612,7 +5612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   mobCollider: {fileID: 0}
-  dmg1: 10
+  dmg1: 20
 --- !u!1 &7532731583878573290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6791,9 +6791,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   enemyControl: {fileID: 0}
-  maxHealth: 100
+  maxHealth: 200
   currentHealth: 0
   healthBar: {fileID: 0}
+  audioManage: {fileID: 0}
 --- !u!114 &4675022627732949129
 MonoBehaviour:
   m_ObjectHideFlags: 0
