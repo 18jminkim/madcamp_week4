@@ -14,6 +14,9 @@ public class WinGame : MonoBehaviour
     public GameObject winMenuUI;
     public AudioManage audioManage;
 
+    public Animator transition;
+    public float transitionTime = 1f;
+
 
     public static bool YouWin = false;
 
@@ -30,7 +33,7 @@ public class WinGame : MonoBehaviour
         if (greenBoss.dead && redBoss.dead && purpleBoss.dead)
         {
             Debug.Log("Resume");
-            winMenuUI.SetActive(true);
+            StartCoroutine(LoadScene(winMenuUI));
             YouWin = true;
             //audioManage.Play("BattleC");
         }
@@ -39,6 +42,17 @@ public class WinGame : MonoBehaviour
     public void BackToMain()
     {
         SceneManager.LoadScene(0);
+    }
+
+    IEnumerator LoadScene(GameObject win)
+    {
+        //Play Ani
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        win.SetActive(true);
+
     }
 
 }
