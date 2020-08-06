@@ -14,6 +14,9 @@ public class LoseGame : MonoBehaviour
 
     public AudioManage audioManage;
 
+    public Animator transition;
+    public float transitionTime = 1f;
+
 
     private void Start()
     {
@@ -30,7 +33,8 @@ public class LoseGame : MonoBehaviour
         {
             //audioManage.Stop("BossTheme");
             Debug.Log("Player Died");
-            loseMenuUI.SetActive(true);
+            //loseMenuUI.SetActive(true);
+            StartCoroutine(LoadScene(loseMenuUI));
             YouLost = true;
             
         }
@@ -46,6 +50,17 @@ public class LoseGame : MonoBehaviour
     public void BackToMain()
     {
         SceneManager.LoadScene(0);
+    }
+
+    IEnumerator LoadScene(GameObject win)
+    {
+        //Play Ani
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        win.SetActive(true);
+
     }
 }
 
