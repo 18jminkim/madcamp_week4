@@ -10,7 +10,12 @@ public class MouseLock : MonoBehaviour
     //public PlayerMove playerMove;
 
 
-
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        cine.enabled = true;
+    }
 
     // Update is called once per frame
     void Update()

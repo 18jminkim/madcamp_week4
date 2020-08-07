@@ -13,7 +13,7 @@ public class PlayerMove : MonoBehaviour
     // movement
     public bool movable = true;
     public float runSpeed = 1f;
-
+    public float gfSpeed = 10f;
 
     // sprinting
     public float sprintSpeed = 3f;
@@ -109,6 +109,9 @@ public class PlayerMove : MonoBehaviour
             return;
         }
 
+
+
+
         // translation
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
@@ -137,10 +140,21 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("run", false);
             //Debug.Log("Not moving.");
         }
+        Vector3 facing = transform.forward.normalized;
+        Debug.Log(animator.GetCurrentAnimatorStateInfo(0).ToString());
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Fury"))
+        {
+            Debug.Log(animator.GetCurrentAnimatorStateInfo(0).IsName("Gliding Fury"));
+            transform.Translate(facing * gfSpeed * Time.deltaTime, Space.World);
+            return;
+
+        }
+        
+        
 
         if (roll)
         {
-            Vector3 facing = transform.forward.normalized;
+           
             //Debug.Log(facing.ToString());
             transform.Translate(facing * rollSpeed * Time.deltaTime, Space.World);
 

@@ -20,17 +20,18 @@ public class PlayerCombat : MonoBehaviour
     public float knockbackDistance = 0.5f;
 
 
-    public float attackRate = 2f;
+    public float attackRate = 3f;
     float nextAttackTime = 0f;
 
 
     // gliding fury combo.
     public int noOfClicks = 0;
-    float laskClickedTime = 0f;
+    //float laskClickedTime = 0f;
     public float maxComboDelay = 0.9f;
 
 
     public bool dead = false;
+    public bool combo = false;
 
 
     private void Start()
@@ -48,19 +49,11 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
+        
+
         /*
-        if (Time.time >= nextAttackTime)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                attack();
-                nextAttackTime = Time.time + 1f / attackRate;
-                //audioManage.Play("Hit");
-            }
-
-        }
-        */
-
         if (Time.time - laskClickedTime > maxComboDelay)
         {
             noOfClicks = 0;
@@ -77,14 +70,36 @@ public class PlayerCombat : MonoBehaviour
             noOfClicks = Mathf.Clamp(noOfClicks, 0, 3);
         }
         return1();
+        */
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetTrigger("glidingFury");
+        }
+        if (Time.time >= nextAttackTime)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+                //audioManage.Play("Hit");
+            }
 
+        }
 
+        
+
+    }
+
+    void disableCombo()
+    {
+        combo = false;
     }
     
     public void return1()
     {
         if (noOfClicks >= 2)
         {
+
             animator.SetTrigger("glidingFury");
         }
         noOfClicks = 0;

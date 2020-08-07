@@ -30,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack") || animator.GetCurrentAnimatorStateInfo(0).IsTag("Fury"))
         {
             swordCol.enabled = true;
         }
@@ -43,20 +43,27 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter(Collider trigger)
     {
-
+        int dmg = 0;
         if (trigger.tag == "MobHurtbox") // collided with a hostile mob.
         {
             Debug.Log("Sword collider: we hit " + trigger.name);
             audioManage.Play("Hurt");
             MobCombat mobCombat = trigger.GetComponent<MobCombat>();
-
+            if (animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+            {
+                dmg = dmg1;
+            }
+            else
+            {
+                dmg = dmg3;
+            }
             if (mobCombat != null) // not a boss.
             {
-                mobCombat.takeDamage(dmg1);
+                mobCombat.takeDamage(dmg);
             }
             else // is a boss.
             {
-                trigger.GetComponent<BossCombat>().takeDamage(dmg1);
+                trigger.GetComponent<BossCombat>().takeDamage(dmg);
             }
 
 

@@ -44,6 +44,7 @@ public class LoseGame : MonoBehaviour
 
     public void ReStart()
     {
+        Debug.Log("Restart");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

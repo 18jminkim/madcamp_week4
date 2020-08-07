@@ -760,11 +760,14 @@ MonoBehaviour:
   healthBar: {fileID: 488888754}
   audioManage: {fileID: 0}
   playerTransform: {fileID: 0}
-  maxHealth: 300
+  maxHealth: 200
   currentHealth: 0
   knockbackDistance: 2
-  attackRate: 1
+  attackRate: 1.8
+  noOfClicks: 0
+  maxComboDelay: 0.9
   dead: 0
+  combo: 0
 --- !u!114 &985431393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -781,6 +784,7 @@ MonoBehaviour:
   characterCol: {fileID: 0}
   movable: 1
   runSpeed: 3
+  gfSpeed: 50
   sprintSpeed: 5
   sprinting: 0
   buttonCoolerW: 0.5

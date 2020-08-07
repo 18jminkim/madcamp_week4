@@ -46,14 +46,14 @@ MonoBehaviour:
   sounds:
   - name: Hurt
     clip: {fileID: 8300000, guid: 2d3d61f7b98c66846975cfafe3bc37e1, type: 3}
-    volume: 1
+    volume: 0.5
     pitch: 2
     loop: 0
     source: {fileID: 0}
   - name: Swing
     clip: {fileID: 8300000, guid: de66d0e50befd2b4ead5e25313d3e9c9, type: 3}
     volume: 1
-    pitch: 1.85
+    pitch: 1.9
     loop: 1
     source: {fileID: 0}
   - name: Theme
@@ -94,6 +94,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PlayerHurt
     clip: {fileID: 8300000, guid: 67522121fd5237d42a2cafb2c5472115, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: GlidingFury
+    clip: {fileID: 8300000, guid: 38660a954a9bf274087a5756f24b4126, type: 3}
     volume: 1
     pitch: 1
     loop: 0

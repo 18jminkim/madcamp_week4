@@ -41,6 +41,7 @@ public class WinGame : MonoBehaviour
 
     public void BackToMain()
     {
+        //Application.LoadLevel(0);
         SceneManager.LoadScene(0);
     }
 
